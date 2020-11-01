@@ -7,3 +7,14 @@
 .status {
   margin-bottom: 10px;
 }
+.primary_btn {
+  margin: 20px;
+  background: rgba(6, 6, 78, 0.719);
+  cursor: pointer;
+  border-radius: 20px;
+  color: white;
+}
+.primary_btn:hover {
+  background: white;
+  color: rgba(6, 6, 78, 0.719);
+}

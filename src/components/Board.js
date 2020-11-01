@@ -26,10 +26,12 @@ export default function Board() {
   let status;
   if (winner) {
     status = "Winner: " + winner;
+    setTimeout(function () {
+      alert(winner + "You win!!");
+    }, 100);
   } else {
     status = "Next player: " + nextPlayer;
   }
-
   return (
     <div>
       <div className="status">{status}</div>
