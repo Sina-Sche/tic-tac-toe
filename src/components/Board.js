@@ -1,11 +1,11 @@
 import "./board.css";
 import React, { useState } from "react";
 import Square from "./Square";
-import { calculateWinner } from "../utils/winner";
+import { calculateWinner } from "../utils/logic";
 
 export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
-  const [rocketIsNext, setXIsNext] = useState(true);
+  const [rocketIsNext, setRocketIsNext] = useState(true);
   const winner = calculateWinner(squares);
   const nextPlayer = rocketIsNext ? "🚀" : "👨🏽‍🚀";
 
@@ -16,7 +16,7 @@ export default function Board() {
     const newSquares = squares.slice();
     newSquares[index] = nextPlayer;
     setSquares(newSquares);
-    setXIsNext(!rocketIsNext);
+    setRocketIsNext(!rocketIsNext);
   }
 
   function renderSquare(index) {
@@ -26,10 +26,12 @@ export default function Board() {
   let status;
   if (winner) {
     status = "Winner: " + winner;
+    setTimeout(function () {
+      alert(winner + "You win!!");
+    }, 100);
   } else {
     status = "Next player: " + nextPlayer;
   }
-
   return (
     <div>
       <div className="status">{status}</div>
